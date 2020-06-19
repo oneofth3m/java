@@ -1,0 +1,19 @@
+ - Create repo in github... with .gitignore maven
+ - git clone
+
+ naveen@devxubuntuvm:/naveen/ws/github.com/java$ curl -C - -O https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+$ export PATH=$PATH:/naveen/ws/github.com/java/apache-maven-3.6.3/bin
+
+naveen@devxubuntuvm:/naveen/ws/github.com/java$ mvn -B archetype:generate   -DarchetypeGroupId=org.apache.maven.archetypes   -DgroupId=com.github.com.oneofth3m.s3cli   -DartifactId=s3cli
+naveen@devxubuntuvm:/naveen/ws/github.com/java$ cd s3cli/
+s3cli$ mvn package
+
+s3cli$ java -cp target/s3cli-1.0-SNAPSHOT.jar com.github.com.oneofth3m.s3cli.App
+Hello World!
+
+// Add all dependencies to pom.xml as described in https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-project-maven.html
+$ mvn pacakge
+$ mvn exec:java -D exec.mainClass=com.github.com.oneofth3m.s3cli.App
+
+// When using nutanix objects
+$ mvn package && mvn exec:java -D exec.mainClass=com.github.com.oneofth3m.s3cli.App -Dcom.amazonaws.sdk.disableCertChecking
